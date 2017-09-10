@@ -33,7 +33,7 @@ class ExpandingViewTransitionAnimatorPresent: NSObject, UIViewControllerAnimated
         
         let destinationVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
         destinationVC.modalPresentationStyle = .custom
-        destinationVC.view.backgroundColor = UIColor.orange
+        destinationVC.view.backgroundColor = UIColor(colorLiteralRed: 0.968, green: 0.9019, blue: 1, alpha: 1)//247,230 , 255
         destinationVC.view.alpha = 0
         
         let containerView = transitionContext.containerView
@@ -64,7 +64,7 @@ class ExpandingViewTransitionAnimatorPresent: NSObject, UIViewControllerAnimated
                 self.expandableView.transform = beginTransform
                 self.expandableView.layer.zPosition = beginZPosition
                 transitionContext.completeTransition(true)
-                self.expandableView.backgroundColor = UIColor.black // return to original button color
+                self.expandableView.backgroundColor = UIColor(colorLiteralRed: 0.8431, green: 0.5019, blue: 1, alpha: 1) // return to original button color
             })
         })
     }

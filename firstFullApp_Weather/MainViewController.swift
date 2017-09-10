@@ -41,8 +41,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var temp3Label: UILabel!
     @IBOutlet weak var temp4Label: UILabel!
     
-
+    @IBOutlet weak var menuButton: UIButton!
+    
     @IBAction func animateSecondController(_ sender: Any) {
+        
         
         let transitionDelegate = ExpandingViewTransition(expandingView: sender as! UIView,
                                                          expandViewAnimationDuration: 1,
@@ -72,7 +74,6 @@ class MainViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         updateLabelsWithCurrentDaysOfWeek()
-        setupSelectionBar()
         
     }
     
@@ -131,22 +132,28 @@ class MainViewController: UIViewController {
     
     // MARK: Updating the UI
     func setupSelectionBar(){
+        view.addSubview(initialImageview)
+        initialImageview.image = nil
         initialImageview.frame = CGRect(x: day0Label.frame.origin.x, y: day0Label.frame.origin.y + 5, width: day0Label.frame.width, height: 50)
         initialImageview.image = horizontalBar
-        view.addSubview(initialImageview)
+        
     }
     
     func updateUIWithWeatherData(){
+        setupSelectionBar()
+
         day0Icon.image = UIImage(named: weatherDataModel.weatherIconNameArray[0])
         day1Icon.image = UIImage(named: weatherDataModel.weatherIconNameArray[1])
         day2Icon.image = UIImage(named: weatherDataModel.weatherIconNameArray[2])
         day3Icon.image = UIImage(named: weatherDataModel.weatherIconNameArray[3])
         day4Icon.image = UIImage(named: weatherDataModel.weatherIconNameArray[4])
         temp0Label.text = String(weatherDataModel.temperatureArray[0]) + "°f"
-        temp1Label.text = String(weatherDataModel.temperatureArray[1])
-        temp2Label.text = String(weatherDataModel.temperatureArray[2])
-        temp3Label.text = String(weatherDataModel.temperatureArray[3])
-        temp4Label.text = String(weatherDataModel.temperatureArray[4])
+        temp1Label.text = String(weatherDataModel.temperatureArray[1]) + "°f"
+        temp2Label.text = String(weatherDataModel.temperatureArray[2]) + "°f"
+        temp3Label.text = String(weatherDataModel.temperatureArray[3]) + "°f"
+        temp4Label.text = String(weatherDataModel.temperatureArray[4]) + "°f"
+        
+        //AnimatedWeatherViewController.sharedInstance.cityLabel.text = "Bexley"
         
         AnimatedWeatherViewController.sharedInstance.weatherIconName = weatherDataModel.weatherIconNameArray[0]
         let animatedView = AnimatedWeatherViewController.sharedInstance.view
