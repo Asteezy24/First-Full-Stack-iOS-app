@@ -16,6 +16,8 @@
 		FB7781521F46267600E88572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB7781501F46267600E88572 /* Main.storyboard */; };
 		FB7781541F46267600E88572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB7781531F46267600E88572 /* Assets.xcassets */; };
 		FB7781571F46267600E88572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB7781551F46267600E88572 /* LaunchScreen.storyboard */; };
+		FBE7048F1F6C8E6C00E8B0D6 /* NoConnectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBE7048E1F6C8E6C00E8B0D6 /* NoConnectionView.xib */; };
+		FBE704911F6C983000E8B0D6 /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE704901F6C983000E8B0D6 /* NoConnectionView.swift */; };
 		FBE782231F58C89300BC8789 /* ChangeCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE782221F58C89300BC8789 /* ChangeCityViewController.swift */; };
 		FBE782301F5EE64700BC8789 /* ExpandingViewTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7822F1F5EE64700BC8789 /* ExpandingViewTransition.swift */; };
 		FBE782321F5EE6C000BC8789 /* ExpandingViewTransitionAnimatorPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE782311F5EE6C000BC8789 /* ExpandingViewTransitionAnimatorPresent.swift */; };
@@ -37,6 +39,8 @@
 		FB7781531F46267600E88572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB7781561F46267600E88572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB7781581F46267600E88572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBE7048E1F6C8E6C00E8B0D6 /* NoConnectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoConnectionView.xib; sourceTree = "<group>"; };
+		FBE704901F6C983000E8B0D6 /* NoConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionView.swift; sourceTree = "<group>"; };
 		FBE782221F58C89300BC8789 /* ChangeCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeCityViewController.swift; sourceTree = "<group>"; };
 		FBE7822F1F5EE64700BC8789 /* ExpandingViewTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandingViewTransition.swift; sourceTree = "<group>"; };
 		FBE782311F5EE6C000BC8789 /* ExpandingViewTransitionAnimatorPresent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandingViewTransitionAnimatorPresent.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 			children = (
 				FB7781551F46267600E88572 /* LaunchScreen.storyboard */,
 				FB7781501F46267600E88572 /* Main.storyboard */,
+				FBE7048E1F6C8E6C00E8B0D6 /* NoConnectionView.xib */,
+				FBE704901F6C983000E8B0D6 /* NoConnectionView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -205,6 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE7048F1F6C8E6C00E8B0D6 /* NoConnectionView.xib in Resources */,
 				FB2A4B1E1F584D1E00DB6EAF /* Franklin M54.ttf in Resources */,
 				FB7781571F46267600E88572 /* LaunchScreen.storyboard in Resources */,
 				FB7781541F46267600E88572 /* Assets.xcassets in Resources */,
@@ -241,11 +248,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-firstFullApp_Weather/Pods-firstFullApp_Weather-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB0A28CD1F5049B00061EADA /* AnimatedWeatherViewController.swift in Sources */,
+				FBE704911F6C983000E8B0D6 /* NoConnectionView.swift in Sources */,
 				FB77814F1F46267600E88572 /* MainViewController.swift in Sources */,
 				FBE782301F5EE64700BC8789 /* ExpandingViewTransition.swift in Sources */,
 				FBE782321F5EE6C000BC8789 /* ExpandingViewTransitionAnimatorPresent.swift in Sources */,
@@ -405,12 +415,14 @@
 			baseConfigurationReference = 35B26074DDC4429C7CA6AFD3 /* Pods-firstFullApp_Weather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = C7HGN23NTW;
 				INFOPLIST_FILE = firstFullApp_Weather/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexStevens.firstFullApp-Weather";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -420,12 +432,14 @@
 			baseConfigurationReference = 0A2655B3772EEF3368B5FDB3 /* Pods-firstFullApp_Weather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = C7HGN23NTW;
 				INFOPLIST_FILE = firstFullApp_Weather/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexStevens.firstFullApp-Weather";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

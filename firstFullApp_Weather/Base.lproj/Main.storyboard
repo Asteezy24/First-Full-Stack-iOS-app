@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="000-ei-ZEe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="000-ei-ZEe">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -114,31 +114,31 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boa-Ek-cma">
-                                <rect key="frame" x="33" y="515" width="17" height="18"/>
+                                <rect key="frame" x="35.5" y="515" width="12" height="18"/>
                                 <fontDescription key="fontDescription" name="FranklinM54" family="Franklin M54" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eD-gc-H7K">
-                                <rect key="frame" x="103" y="515" width="17" height="18"/>
+                                <rect key="frame" x="105.5" y="515" width="12" height="18"/>
                                 <fontDescription key="fontDescription" name="FranklinM54" family="Franklin M54" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3D-4K-amk">
-                                <rect key="frame" x="179" y="515" width="17" height="18"/>
+                                <rect key="frame" x="181.5" y="515" width="12" height="18"/>
                                 <fontDescription key="fontDescription" name="FranklinM54" family="Franklin M54" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWz-or-Tyl">
-                                <rect key="frame" x="255" y="515" width="17" height="18"/>
+                                <rect key="frame" x="257.5" y="515" width="12" height="18"/>
                                 <fontDescription key="fontDescription" name="FranklinM54" family="Franklin M54" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTX-5S-Eo4">
-                                <rect key="frame" x="324.5" y="515" width="17" height="18"/>
+                                <rect key="frame" x="327" y="515" width="12" height="18"/>
                                 <fontDescription key="fontDescription" name="FranklinM54" family="Franklin M54" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -164,6 +164,7 @@
                                     <constraint firstAttribute="width" constant="50" id="7FN-Dj-Y3f" userLabel="width = 40"/>
                                     <constraint firstAttribute="height" constant="50" id="MWR-Bf-4xn"/>
                                 </constraints>
+                                <state key="normal" image="buttonMenu"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="25"/>
@@ -175,8 +176,9 @@
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXC-oH-nu7">
                                 <rect key="frame" x="16" y="107" width="342" height="312"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="gcQ-zQ-7as" kind="embed" id="YoJ-gH-ybD"/>
+                                    <segue destination="gcQ-zQ-7as" kind="embed" identifier="animatedWeatherSegue" id="YoJ-gH-ybD"/>
                                 </connections>
                             </containerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w3n-4X-KCP">
@@ -303,25 +305,55 @@
                                     <action selector="circlePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X2y-1g-aB6"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a City Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4it-I6-TU8">
+                                <rect key="frame" x="60" y="141" width="255" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xks-sq-LrN">
+                                <rect key="frame" x="60" y="191" width="255" height="30"/>
+                                <color key="backgroundColor" red="0.92156862745098034" green="0.97647058823529409" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Enter">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="newCityButtonPressed:" destination="DP8-4l-EHH" eventType="touchUpInside" id="7Zn-lI-3JV"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.02343811485" blue="0.01193312622" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="right" secondItem="4it-I6-TU8" secondAttribute="right" constant="60" id="GGl-Av-0Mt"/>
+                            <constraint firstItem="Xks-sq-LrN" firstAttribute="width" secondItem="4it-I6-TU8" secondAttribute="width" id="PKi-fN-ZAP"/>
+                            <constraint firstItem="4it-I6-TU8" firstAttribute="left" secondItem="DFb-Zu-Wq8" secondAttribute="left" constant="60" id="dVg-Oo-Qzn"/>
+                            <constraint firstItem="4it-I6-TU8" firstAttribute="centerX" secondItem="DFb-Zu-Wq8" secondAttribute="centerX" id="iXL-sL-hus"/>
                             <constraint firstItem="KCL-hG-zbK" firstAttribute="trailing" secondItem="DFb-Zu-Wq8" secondAttribute="trailingMargin" id="jp4-FS-afs"/>
                             <constraint firstItem="KCL-hG-zbK" firstAttribute="top" secondItem="dL8-Qq-TtO" secondAttribute="bottom" constant="25" id="oaF-AM-3mf"/>
+                            <constraint firstItem="Xks-sq-LrN" firstAttribute="top" secondItem="4it-I6-TU8" secondAttribute="bottom" constant="20" id="sLT-WM-9eO"/>
+                            <constraint firstItem="WA4-je-FS4" firstAttribute="top" secondItem="Xks-sq-LrN" secondAttribute="bottom" constant="446" id="ugJ-O5-3ah"/>
+                            <constraint firstItem="Xks-sq-LrN" firstAttribute="centerX" secondItem="DFb-Zu-Wq8" secondAttribute="centerX" id="wRb-Yv-0f0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="changeCityTextField" destination="4it-I6-TU8" id="KWc-fL-zwV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wbm-b9-ryX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2449" y="159"/>
+            <point key="canvasLocation" x="2448.8000000000002" y="158.77061469265368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="li4-l2-CA6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="000-ei-ZEe" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qaa-Of-fhf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="qaa-Of-fhf">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -345,26 +377,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="342" height="312"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CityName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeZ-md-Owc">
-                                <rect key="frame" x="46" y="20" width="104" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIx-FM-EZT">
+                                <rect key="frame" x="36" y="85" width="200" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="kCH-Gf-ApG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="FranklinM54" family="Franklin M54" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUl-KH-bu7">
-                                <rect key="frame" x="72" y="60" width="53" height="24"/>
-                                <fontDescription key="fontDescription" name="FranklinM54" family="Franklin M54" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDh-Se-LLH">
+                                <rect key="frame" x="36" y="25" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Wvo-B4-w4H"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FranklinM54" family="Franklin M54" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="TeZ-md-Owc" firstAttribute="top" secondItem="SLI-ud-2FF" secondAttribute="bottom" constant="20" id="2nX-KX-Bvl"/>
-                            <constraint firstItem="UUl-KH-bu7" firstAttribute="top" secondItem="SLI-ud-2FF" secondAttribute="bottom" constant="60" id="Y7l-F4-JNs"/>
-                            <constraint firstItem="UUl-KH-bu7" firstAttribute="centerX" secondItem="TeZ-md-Owc" secondAttribute="centerX" id="cqT-hn-Yj6"/>
-                            <constraint firstItem="TeZ-md-Owc" firstAttribute="leading" secondItem="VU6-L6-dPC" secondAttribute="leadingMargin" constant="30" id="uqL-IQ-ozY"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="MDh-Se-LLH" secondAttribute="leading" constant="-20" id="08C-3U-rPY"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="oIx-FM-EZT" secondAttribute="leading" constant="-20" id="bfW-8A-Rhg"/>
+                            <constraint firstItem="MDh-Se-LLH" firstAttribute="top" secondItem="SLI-ud-2FF" secondAttribute="bottom" constant="25" id="gq9-8f-Oni"/>
+                            <constraint firstItem="oIx-FM-EZT" firstAttribute="centerX" secondItem="MDh-Se-LLH" secondAttribute="centerX" id="hFl-FN-mQ5"/>
+                            <constraint firstItem="oIx-FM-EZT" firstAttribute="top" secondItem="MDh-Se-LLH" secondAttribute="bottom" constant="30" id="mGe-dC-oAa"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cityLabel" destination="MDh-Se-LLH" id="453-ic-BB4"/>
+                        <outlet property="tempLabel" destination="oIx-FM-EZT" id="bM9-g6-ZSJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ll2-nz-fhe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -372,6 +416,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="buttonMenu" width="242" height="242"/>
         <image name="icons8-Cancel Filled-50" width="50" height="50"/>
     </resources>
 </document>

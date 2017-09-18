@@ -8,5 +8,6 @@ target 'firstFullApp_Weather' do
   # Pods for firstFullApp_Weather
     pod 'SwiftyJSON'
     pod 'Alamofire'
+    pod 'SVProgressHUD'
 
 end

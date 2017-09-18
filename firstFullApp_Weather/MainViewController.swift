@@ -12,13 +12,16 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, ChangeCityDelegate {
+    
+    var containerVC: AnimatedWeatherViewController!
     
     let APIkey = "2daaa76ee90d95a4aba4c6f3f866b288"
     let APIurl = "http://api.openweathermap.org/data/2.5/forecast"
     
     let weatherDataModel = WeatherDataModel()
     let locationManager = CLLocationManager()
+    var animatedViewControllerInstance = AnimatedWeatherViewController()
     
     // MARK: UI Elements
     
@@ -45,6 +48,8 @@ class MainViewController: UIViewController {
     
     @IBAction func animateSecondController(_ sender: Any) {
         
+        menuButton.setImage(nil, for: .normal)
+        
         
         let transitionDelegate = ExpandingViewTransition(expandingView: sender as! UIView,
                                                          expandViewAnimationDuration: 1,
@@ -52,10 +57,12 @@ class MainViewController: UIViewController {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let vc = storyboard.instantiateViewController(withIdentifier: "ChangeCityViewController")
-        vc.transitioningDelegate = transitionDelegate
+        let vc = storyboard.instantiateViewController(withIdentifier: "ChangeCityViewController") as? ChangeCityViewController
         
-        self.present(vc, animated: true, completion: nil)
+        vc?.delegate = self
+        vc?.transitioningDelegate = transitionDelegate
+        
+        self.present(vc!, animated: true, completion: nil)
     }
     
     
@@ -63,18 +70,25 @@ class MainViewController: UIViewController {
     
     var initialImageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
     
-    @IBAction func circlePressed(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
         locationManager.distanceFilter = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        menuButton.setImage(#imageLiteral(resourceName: "buttonMenu"), for: .normal)
         updateLabelsWithCurrentDaysOfWeek()
-        
+        setupSelectionBar()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "animatedWeatherSegue" {
+            containerVC = segue.destination as? AnimatedWeatherViewController
+        }
     }
     
     // MARK: Getting and Handling the Weather Data
@@ -82,15 +96,20 @@ class MainViewController: UIViewController {
     
     func getWeatherData(url: String, parameters: [String : String]){
         
+        weatherDataModel.temperatureArray.removeAll()
+        weatherDataModel.conditionsArray.removeAll()
+        weatherDataModel.weatherIconNameArray.removeAll()
+        
         Alamofire.request(url, method: .get, parameters:parameters).responseJSON { (response) in
             if response.result.isSuccess {
-                print("Got weatherData")
+
+                self.view.setNeedsDisplay()
                 let weatherJSON : JSON  = JSON(response.result.value!)
                 self.updateWeatherDataModel(json: weatherJSON)
                 
+                
             } else {
-                print("Error \(String(describing: response.result.error))")
-                self.day0Label.text = "Connection Issues"
+                self.view.bringSubview(toFront:)
             }
             
         }
@@ -130,6 +149,7 @@ class MainViewController: UIViewController {
         
     }
     
+    
     // MARK: Updating the UI
     func setupSelectionBar(){
         view.addSubview(initialImageview)
@@ -140,8 +160,10 @@ class MainViewController: UIViewController {
     }
     
     func updateUIWithWeatherData(){
-        setupSelectionBar()
-
+        
+        containerVC.tempLabel.text = weatherDataModel.temperatureArray[0] + "°f"
+        containerVC.cityLabel.text = weatherDataModel.cityName
+        
         day0Icon.image = UIImage(named: weatherDataModel.weatherIconNameArray[0])
         day1Icon.image = UIImage(named: weatherDataModel.weatherIconNameArray[1])
         day2Icon.image = UIImage(named: weatherDataModel.weatherIconNameArray[2])
@@ -153,10 +175,9 @@ class MainViewController: UIViewController {
         temp3Label.text = String(weatherDataModel.temperatureArray[3]) + "°f"
         temp4Label.text = String(weatherDataModel.temperatureArray[4]) + "°f"
         
-        //AnimatedWeatherViewController.sharedInstance.cityLabel.text = "Bexley"
         
-        AnimatedWeatherViewController.sharedInstance.weatherIconName = weatherDataModel.weatherIconNameArray[0]
-        let animatedView = AnimatedWeatherViewController.sharedInstance.view
+        animatedViewControllerInstance.weatherIconName = weatherDataModel.weatherIconNameArray[0]
+        let animatedView = animatedViewControllerInstance.view
         animatedView?.frame = CGRect(x: 0, y: 0, width: containerView.frame.width, height: containerView.frame.height)
         self.containerView.addSubview(animatedView!)
     }
@@ -167,57 +188,62 @@ class MainViewController: UIViewController {
         let fahrenheitFloat: Float = (kelvinFloat! - 273.15) * 9/5 + 32
         let roundedUpFahrenheitInt: Int = Int(ceilf(fahrenheitFloat))
         return String(roundedUpFahrenheitInt)
-        
     }
     
     @IBAction func day0tapped(_ sender: Any) {
         initialImageview.image = nil
         initialImageview.frame = CGRect(x: day0Label.frame.origin.x, y: day0Label.frame.origin.y + 5, width: day0Label.frame.width, height: 50)
         initialImageview.image = horizontalBar
-        AnimatedWeatherViewController.sharedInstance.dayPressed = 0
-        AnimatedWeatherViewController.sharedInstance.weatherIconName = weatherDataModel.weatherIconNameArray[0]
-        AnimatedWeatherViewController.sharedInstance.changeViewToMatchCurrentWeather()
+        animatedViewControllerInstance.dayPressed = 0
+        animatedViewControllerInstance.weatherIconName = weatherDataModel.weatherIconNameArray[0]
+        animatedViewControllerInstance.changeViewToMatchCurrentWeather()
+        containerVC.tempLabel.text = weatherDataModel.temperatureArray[0] + "°f"
     }
     
     @IBAction func day1tapped(_ sender: Any) {
         initialImageview.image = nil
         initialImageview.frame = CGRect(x: day1Label.frame.origin.x, y: day1Label.frame.origin.y + 5, width: day1Label.frame.width, height: 50)
         initialImageview.image = horizontalBar
-        AnimatedWeatherViewController.sharedInstance.dayPressed = 1
-        AnimatedWeatherViewController.sharedInstance.weatherIconName = weatherDataModel.weatherIconNameArray[1]
-        AnimatedWeatherViewController.sharedInstance.changeViewToMatchCurrentWeather()
-        
+        animatedViewControllerInstance.dayPressed = 1
+        animatedViewControllerInstance.weatherIconName = weatherDataModel.weatherIconNameArray[1]
+        animatedViewControllerInstance.changeViewToMatchCurrentWeather()
+        containerVC.tempLabel.text = weatherDataModel.temperatureArray[1] + "°f"
     }
     
     @IBAction func day2tapped(_ sender: Any) {
         initialImageview.image = nil
         initialImageview.frame = CGRect(x: day2Label.frame.origin.x, y: day2Label.frame.origin.y + 5, width: day2Label.frame.width, height: 50)
         initialImageview.image = horizontalBar
-        AnimatedWeatherViewController.sharedInstance.dayPressed = 2
-        AnimatedWeatherViewController.sharedInstance.weatherIconName = weatherDataModel.weatherIconNameArray[2]
-        AnimatedWeatherViewController.sharedInstance.changeViewToMatchCurrentWeather()
-        
+        animatedViewControllerInstance.dayPressed = 2
+        animatedViewControllerInstance.weatherIconName = weatherDataModel.weatherIconNameArray[2]
+        animatedViewControllerInstance.changeViewToMatchCurrentWeather()
+        containerVC.tempLabel.text = weatherDataModel.temperatureArray[2] + "°f"
     }
     
     @IBAction func day3tapped(_ sender: Any) {
         initialImageview.image = nil
         initialImageview.frame = CGRect(x: day3Label.frame.origin.x, y: day3Label.frame.origin.y + 5, width: day3Label.frame.width, height: 50)
         initialImageview.image = horizontalBar
-        AnimatedWeatherViewController.sharedInstance.dayPressed = 3
-        AnimatedWeatherViewController.sharedInstance.weatherIconName = weatherDataModel.weatherIconNameArray[3]
-        AnimatedWeatherViewController.sharedInstance.changeViewToMatchCurrentWeather()
+        animatedViewControllerInstance.dayPressed = 3
+        animatedViewControllerInstance.weatherIconName = weatherDataModel.weatherIconNameArray[3]
+        animatedViewControllerInstance.changeViewToMatchCurrentWeather()
+        containerVC.tempLabel.text = weatherDataModel.temperatureArray[3] + "°f"
     }
     
     @IBAction func day4tapped(_ sender: Any) {
         initialImageview.image = nil
         initialImageview.frame = CGRect(x: day4Label.frame.origin.x, y: day4Label.frame.origin.y + 5, width: day4Label.frame.width, height: 50)
         initialImageview.image = horizontalBar
-        AnimatedWeatherViewController.sharedInstance.dayPressed = 4
-        AnimatedWeatherViewController.sharedInstance.weatherIconName = weatherDataModel.weatherIconNameArray[4]
-        AnimatedWeatherViewController.sharedInstance.changeViewToMatchCurrentWeather()
-        
+        animatedViewControllerInstance.dayPressed = 4
+        animatedViewControllerInstance.weatherIconName = weatherDataModel.weatherIconNameArray[4]
+        animatedViewControllerInstance.changeViewToMatchCurrentWeather()
+        containerVC.tempLabel.text = weatherDataModel.temperatureArray[4] + "°f"
     }
     
+    func userEnteredANewCityName(city: String){
+        let params : [String:String] = ["q": city, "appid" : APIkey]
+        getWeatherData(url: APIurl, parameters: params)
+    }
     
 }
 

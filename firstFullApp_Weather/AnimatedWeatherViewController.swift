@@ -11,22 +11,41 @@ import UIKit
 
 class AnimatedWeatherViewController: UIViewController {
     
-    static let sharedInstance = AnimatedWeatherViewController()
-    
     var dayPressed: Int = 0
     var weatherIconName: String? = nil
     
+    @IBOutlet var tempLabel: UILabel!
+    @IBOutlet var cityLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.layer.masksToBounds = false
-        view.layer.shadowOffset = CGSize(width: -5, height: 10)
-        view.layer.shadowRadius = 5
-        view.layer.shadowOpacity = 0.5
-        //changeViewToMatchCurrentWeather()
+        
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         changeViewToMatchCurrentWeather()
+        setupGradiantBorder()
+        
+        
+    }
+    
+    func setupGradiantBorder(){
+        let gradient = CAGradientLayer()
+        gradient.frame =  CGRect(origin: CGPoint.zero, size: view.frame.size)
+        let myBlue = UIColor(colorLiteralRed: 0.1725, green: 0.4314, blue: 0.9843, alpha: 1) //##2C6EFB
+        let myPurple = UIColor(colorLiteralRed: 0.7098, green: 0.2275, blue: 0.9882, alpha: 1)//#B53AFC
+        gradient.colors = [myBlue.cgColor, myPurple.cgColor]
+        
+        let shape = CAShapeLayer()
+        shape.lineWidth = 7
+        shape.path = UIBezierPath(rect: view.bounds).cgPath
+        shape.strokeColor = UIColor.black.cgColor
+        shape.fillColor = UIColor.clear.cgColor
+        gradient.mask = shape
+        
+        view.layer.addSublayer(gradient)
     }
     
     func changeViewToMatchCurrentWeather(){
@@ -70,7 +89,7 @@ class AnimatedWeatherViewController: UIViewController {
     func showCloudLightning(){
         removeSubviews()
         let imageView = UIImageView(image: #imageLiteral(resourceName: "ANIMATIONtstorm"))
-        imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 80)
+        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 160)
         imageView.contentMode = .scaleAspectFit
         
         let animation = setupAnimation()
@@ -81,10 +100,11 @@ class AnimatedWeatherViewController: UIViewController {
         removeSubviews()
         
     }
+    
     func showCloudRainSun(){
         removeSubviews()
         let imageView = UIImageView(image: #imageLiteral(resourceName: "ANIMATIONpartlycloudrain"))
-        imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 80)
+        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 160)
         imageView.contentMode = .scaleAspectFit
         
         let animation = setupAnimation()
@@ -115,9 +135,8 @@ class AnimatedWeatherViewController: UIViewController {
     func showSun(){
         
         removeSubviews()
-        view.addSubview((RadialGradientView(frame: view.frame)))
         let imageView = UIImageView(image: #imageLiteral(resourceName: "ANIMATIONsun"))
-        imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 80)
+        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 160)
         imageView.contentMode = .scaleAspectFit
         
         let animation = setupAnimation()
@@ -128,17 +147,23 @@ class AnimatedWeatherViewController: UIViewController {
     func showCloudSun(){
         
         removeSubviews()
-
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "ANIMATIONpartlycloudy"))
+        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 160)
+        imageView.contentMode = .scaleAspectFit
+        
+        let animation = setupAnimation()
+        imageView.layer.add(animation, forKey: nil)
+        view.addSubview(imageView)
+        
+        
         
     }
     func showCloud(){
         
         removeSubviews()
-        let radialView = RadialGradientView(frame: view.frame)
-        view.bringSubview(toFront: radialView)
         
         let imageView = UIImageView(image: #imageLiteral(resourceName: "ANIMATIONcloud"))
-        imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 80)
+        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 160)
         imageView.contentMode = .scaleAspectFit
         
         let animation = setupAnimation()
@@ -148,7 +173,7 @@ class AnimatedWeatherViewController: UIViewController {
     }
     
     func showWind(){
-        view.backgroundColor = UIColor.gray
+        removeSubviews()
         
     }
     
@@ -168,39 +193,17 @@ class AnimatedWeatherViewController: UIViewController {
         }
     }
     
-    
-}
-
-fileprivate func customPath() -> UIBezierPath {
-    let path = UIBezierPath()
-    let endpoint = CGPoint(x: AnimatedWeatherViewController.sharedInstance.view.frame.height / 2, y: AnimatedWeatherViewController.sharedInstance.view.frame.width / 2)
-    let controlPoint1 = CGPoint(x: 100, y: 100)
-    path.move(to: CGPoint(x: 0, y: AnimatedWeatherViewController.sharedInstance.view.frame.origin.y + AnimatedWeatherViewController.sharedInstance.view.frame.height))
-    path.addCurve(to: endpoint, controlPoint1: controlPoint1, controlPoint2: endpoint)
-    return path
-}
-
-class CurvedView: UIView {
-    override func draw(_ rect: CGRect) {
-        let path = customPath()
-        path.lineWidth = 0
-        path.stroke()
-        
+    func customPath() -> UIBezierPath {
+        let path = UIBezierPath()
+        let endpoint = CGPoint(x: view.frame.height / 2, y: view.frame.width / 2)
+        let controlPoint1 = CGPoint(x: view.frame.origin.x/3, y: view.frame.origin.y/3)
+        path.move(to: CGPoint(x: 0, y: view.frame.origin.y + view.frame.height))
+        path.addCurve(to: endpoint, controlPoint1: controlPoint1, controlPoint2: endpoint)
+        return path
     }
+    
+    
 }
 
-class RadialGradientView: UIView {
-    
-    @IBInspectable var outsideColor: UIColor = UIColor.blue
-    @IBInspectable var insideColor: UIColor = UIColor.init(colorLiteralRed: 0.6, green: 0.76, blue: 1, alpha: 1) // #99c2ff
-    
-    override func draw(_ rect: CGRect) {
-        let colors = [insideColor.cgColor, outsideColor.cgColor] as CFArray
-        let endRadius = sqrt(pow(frame.width/2, 2) + pow(frame.height/2, 2))
-        let center = CGPoint(x: bounds.size.width / 2, y: bounds.size.height / 2)
-        let gradient = CGGradient(colorsSpace: nil, colors: colors, locations: nil)
-        let context = UIGraphicsGetCurrentContext()
-        
-        context?.drawRadialGradient(gradient!, startCenter: center, startRadius: 0.0, endCenter: center, endRadius: endRadius, options: CGGradientDrawingOptions.drawsBeforeStartLocation)
-    }
-}
+
+
