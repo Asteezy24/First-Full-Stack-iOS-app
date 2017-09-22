@@ -11,10 +11,13 @@ import Foundation
 import CoreLocation
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
 
 class MainViewController: UIViewController, ChangeCityDelegate {
     
     var containerVC: AnimatedWeatherViewController!
+    
+    let progressHUD = SVProgressHUD()
     
     let APIkey = "2daaa76ee90d95a4aba4c6f3f866b288"
     let APIurl = "http://api.openweathermap.org/data/2.5/forecast"
@@ -100,16 +103,40 @@ class MainViewController: UIViewController, ChangeCityDelegate {
         weatherDataModel.conditionsArray.removeAll()
         weatherDataModel.weatherIconNameArray.removeAll()
         
+        SVProgressHUD.show(withStatus: "Loading...")
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultMaskType(.black)
+        
         Alamofire.request(url, method: .get, parameters:parameters).responseJSON { (response) in
             if response.result.isSuccess {
+                
+                SVProgressHUD.dismiss()
 
                 self.view.setNeedsDisplay()
                 let weatherJSON : JSON  = JSON(response.result.value!)
                 self.updateWeatherDataModel(json: weatherJSON)
                 
                 
-            } else {
-                self.view.bringSubview(toFront:)
+            } else { // if connection fails
+                
+                SVProgressHUD.dismiss()
+                let alert = UIAlertController(title: "No Connection", message: "Please check your settings or try again.", preferredStyle: UIAlertControllerStyle.alert)
+                
+                alert.addAction(UIAlertAction(title: "Settings", style: UIAlertActionStyle.default, handler: { (_) in
+                    if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
+                        UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
+                    }
+                    
+                    self.getWeatherData(url: self.APIurl, parameters: parameters)
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: { (_) in
+                    self.getWeatherData(url: self.APIurl, parameters: parameters)
+                }))
+
+                
+                self.present(alert, animated: true, completion: nil)
+
             }
             
         }
@@ -269,6 +296,22 @@ extension MainViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if(status == .denied){
+            let alert = UIAlertController(title: "Location Permission Denied", message: "This app cannot be used without your location.", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "Settings", style: UIAlertActionStyle.default, handler: { (_) in
+                if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
+                    UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
+                }
+                
+            }))
+    
+            self.present(alert, animated: true, completion: nil)
+        }
+
     }
 }
 // MARK: Handle Days of Week

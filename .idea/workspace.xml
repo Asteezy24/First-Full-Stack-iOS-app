@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6d891544-916b-4e49-a0bd-8c9506238168" name="Default" comment="" />
+    <list default="true" id="6d891544-916b-4e49-a0bd-8c9506238168" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/AppIcon.appiconset/AppIcon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/AppIcon.appiconset/Icon-60@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/AppIcon.appiconset/Icon-60@3x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/AppIcon.appiconset/Icon-Spotlight-40@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/AppIcon.appiconset/Icon-Spotlight-40@3x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/icons8-Cancel-50.imageset/icons8-Cancel-50.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/texture2.imageset/texture2.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/icons8-Cancel Filled-50.imageset/Contents.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/icons8-Cancel Filled-50.imageset/icons8-Cancel Filled-50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/icons8-Circle-40.imageset/icons8-Circle-40.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/icons8-Horizontal Line Filled-50.imageset/Contents.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/icons8-Horizontal Line Filled-50.imageset/icons8-Horizontal Line Filled-50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/icons8-Info-50.imageset/Contents.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/icons8-Info-50.imageset/icons8-Info-50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/icons8-Info-64.imageset/Contents.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/icons8-Info-64.imageset/icons8-Info-64.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/icons8-Menu-50.imageset/icons8-Menu-50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/icons8-Menu-64.imageset/Contents.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/icons8-Menu-64.imageset/icons8-Menu-64.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/firstFullApp_Weather/NoConnectionView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/firstFullApp_Weather/NoConnectionView.xib" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/icons8-Circle-40.imageset/Contents.json" afterPath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/icons8-Cancel-50.imageset/Contents.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/icons8-Menu-50.imageset/Contents.json" afterPath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/texture2.imageset/Contents.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firstFullApp_Weather.xcworkspace/xcuserdata/Steeze.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/firstFullApp_Weather.xcworkspace/xcuserdata/Steeze.xcuserdatad/UserInterfaceState.xcuserstate" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firstFullApp_Weather.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/firstFullApp_Weather.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firstFullApp_Weather/AnimatedWeatherViewController.swift" afterPath="$PROJECT_DIR$/firstFullApp_Weather/AnimatedWeatherViewController.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/AppIcon.appiconset/Contents.json" afterPath="$PROJECT_DIR$/firstFullApp_Weather/Assets.xcassets/AppIcon.appiconset/Contents.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firstFullApp_Weather/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/firstFullApp_Weather/Base.lproj/Main.storyboard" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firstFullApp_Weather/ChangeCityViewController.swift" afterPath="$PROJECT_DIR$/firstFullApp_Weather/ChangeCityViewController.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firstFullApp_Weather/ExpandingViewTransitionAnimatorPresent.swift" afterPath="$PROJECT_DIR$/firstFullApp_Weather/ExpandingViewTransitionAnimatorPresent.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firstFullApp_Weather/Info.plist" afterPath="$PROJECT_DIR$/firstFullApp_Weather/Info.plist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firstFullApp_Weather/MainViewController.swift" afterPath="$PROJECT_DIR$/firstFullApp_Weather/MainViewController.swift" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,37 +44,21 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos" />
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="MainViewController.swift" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/firstFullApp_Weather/MainViewController.swift">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="311">
-              <caret line="52" column="77" lean-forward="false" selection-start-line="52" selection-start-column="77" selection-end-line="52" selection-end-column="77" />
-              <folding>
-                <marker date="1504620811000" expanded="true" signature="295:9775" ph="{...}" />
-                <marker date="1504620811000" expanded="true" signature="1338:1928" ph="{...}" />
-                <marker date="1504620811000" expanded="true" signature="2177:2253" ph="{...}" />
-                <marker date="1504620811000" expanded="true" signature="2291:2625" ph="{...}" />
-                <marker date="1504620811000" expanded="true" signature="2759:3299" ph="{...}" />
-                <marker date="1504620811000" expanded="true" signature="3348:5149" ph="{...}" />
-                <marker date="1504620811000" expanded="true" signature="5212:5452" ph="{...}" />
-                <marker date="1504620811000" expanded="true" signature="5492:6634" ph="{...}" />
-                <marker date="1504620811000" expanded="true" signature="6718:6971" ph="{...}" />
-                <marker date="1504620811000" expanded="true" signature="7022:7524" ph="{...}" />
-                <marker date="1504620811000" expanded="true" signature="7575:8086" ph="{...}" />
-                <marker date="1504620811000" expanded="true" signature="8137:8648" ph="{...}" />
-                <marker date="1504620811000" expanded="true" signature="8699:9201" ph="{...}" />
-                <marker date="1504620811000" expanded="true" signature="9252:9763" ph="{...}" />
-                <marker date="1504620811000" expanded="true" signature="9861:10772" ph="{...}" />
-                <marker date="1504620811000" expanded="true" signature="9962:10662" ph="{...}" />
-                <marker date="1504620811000" expanded="true" signature="10754:10770" ph="{...}" />
-                <marker date="1504620811000" expanded="true" signature="10879:12601" ph="{...}" />
-              </folding>
+              <caret line="52" column="8" lean-forward="false" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -61,6 +78,7 @@
     <option name="width" value="1280" />
     <option name="height" value="728" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -170,32 +188,33 @@
       <option name="presentableId" value="Default" />
       <updated>1504620660056</updated>
       <workItem from="1504620664000" duration="526000" />
+      <workItem from="1505948941446" duration="90000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="526000" />
+    <option name="totallyTimeSpent" value="616000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="728" extended-state="6" />
     <layout>
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -212,28 +231,17 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/firstFullApp_Weather/MainViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/firstFullApp_Weather/MainViewController.swift">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
-          <caret line="52" column="77" lean-forward="false" selection-start-line="52" selection-start-column="77" selection-end-line="52" selection-end-column="77" />
-          <folding>
-            <marker date="1504620811000" expanded="true" signature="295:9775" ph="{...}" />
-            <marker date="1504620811000" expanded="true" signature="1338:1928" ph="{...}" />
-            <marker date="1504620811000" expanded="true" signature="2177:2253" ph="{...}" />
-            <marker date="1504620811000" expanded="true" signature="2291:2625" ph="{...}" />
-            <marker date="1504620811000" expanded="true" signature="2759:3299" ph="{...}" />
-            <marker date="1504620811000" expanded="true" signature="3348:5149" ph="{...}" />
-            <marker date="1504620811000" expanded="true" signature="5212:5452" ph="{...}" />
-            <marker date="1504620811000" expanded="true" signature="5492:6634" ph="{...}" />
-            <marker date="1504620811000" expanded="true" signature="6718:6971" ph="{...}" />
-            <marker date="1504620811000" expanded="true" signature="7022:7524" ph="{...}" />
-            <marker date="1504620811000" expanded="true" signature="7575:8086" ph="{...}" />
-            <marker date="1504620811000" expanded="true" signature="8137:8648" ph="{...}" />
-            <marker date="1504620811000" expanded="true" signature="8699:9201" ph="{...}" />
-            <marker date="1504620811000" expanded="true" signature="9252:9763" ph="{...}" />
-            <marker date="1504620811000" expanded="true" signature="9861:10772" ph="{...}" />
-            <marker date="1504620811000" expanded="true" signature="9962:10662" ph="{...}" />
-            <marker date="1504620811000" expanded="true" signature="10754:10770" ph="{...}" />
-            <marker date="1504620811000" expanded="true" signature="10879:12601" ph="{...}" />
-          </folding>
+          <caret line="52" column="8" lean-forward="false" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>

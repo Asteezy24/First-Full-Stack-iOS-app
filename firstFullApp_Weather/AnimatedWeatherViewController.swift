@@ -17,25 +17,17 @@ class AnimatedWeatherViewController: UIViewController {
     @IBOutlet var tempLabel: UILabel!
     @IBOutlet var cityLabel: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         changeViewToMatchCurrentWeather()
         setupGradiantBorder()
-        
-        
     }
     
     func setupGradiantBorder(){
         let gradient = CAGradientLayer()
         gradient.frame =  CGRect(origin: CGPoint.zero, size: view.frame.size)
-        let myBlue = UIColor(colorLiteralRed: 0.1725, green: 0.4314, blue: 0.9843, alpha: 1) //##2C6EFB
-        let myPurple = UIColor(colorLiteralRed: 0.7098, green: 0.2275, blue: 0.9882, alpha: 1)//#B53AFC
+        let myBlue = UIColor(red: 0.1725, green: 0.4314, blue: 0.9843, alpha: 1) //##2C6EFB
+        let myPurple = UIColor(red: 0.7098, green: 0.2275, blue: 0.9882, alpha: 1)//#B53AFC
         gradient.colors = [myBlue.cgColor, myPurple.cgColor]
         
         let shape = CAShapeLayer()
@@ -88,25 +80,25 @@ class AnimatedWeatherViewController: UIViewController {
     
     func showCloudLightning(){
         removeSubviews()
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "ANIMATIONtstorm"))
-        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 160)
-        imageView.contentMode = .scaleAspectFit
         
+        let imageView = setUpCorrectImage(image: #imageLiteral(resourceName: "ANIMATIONtstorm"))
         let animation = setupAnimation()
         imageView.layer.add(animation, forKey: nil)
         view.addSubview(imageView)
     }
+    
     func showCloudDrizzleAlt(){
         removeSubviews()
-        
+        let imageView = setUpCorrectImage(image: #imageLiteral(resourceName: "ANIMATIONpartlycloudrain"))
+        let animation = setupAnimation()
+        imageView.layer.add(animation, forKey: nil)
+        view.addSubview(imageView)
     }
     
     func showCloudRainSun(){
         removeSubviews()
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "ANIMATIONpartlycloudrain"))
-        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 160)
-        imageView.contentMode = .scaleAspectFit
         
+        let imageView = setUpCorrectImage(image: #imageLiteral(resourceName: "ANIMATIONpartlycloudrain"))
         let animation = setupAnimation()
         imageView.layer.add(animation, forKey: nil)
         view.addSubview(imageView)
@@ -115,66 +107,77 @@ class AnimatedWeatherViewController: UIViewController {
     func showCloudSnow(){
         removeSubviews()
         
+        let imageView = setUpCorrectImage(image: #imageLiteral(resourceName: "ANIMATIONsnowy"))
+        let animation = setupAnimation()
+        imageView.layer.add(animation, forKey: nil)
+        view.addSubview(imageView)
     }
+    
     func showCloudRain(){
         removeSubviews()
         
+        let imageView = setUpCorrectImage(image: #imageLiteral(resourceName: "ANIMATIONrainy"))
+        let animation = setupAnimation()
+        imageView.layer.add(animation, forKey: nil)
+        view.addSubview(imageView)
     }
+    
     func showCloudSnowAlt(){
         removeSubviews()
         
+        let imageView = setUpCorrectImage(image: #imageLiteral(resourceName: "ANIMATIONsnowy"))
+        let animation = setupAnimation()
+        imageView.layer.add(animation, forKey: nil)
+        view.addSubview(imageView)
     }
+    
     func showCloudFogAlt(){
         removeSubviews()
+        let imageView = setUpCorrectImage(image: #imageLiteral(resourceName: "ANIMATIONwindy"))
+        let animation = setupAnimation()
+        imageView.layer.add(animation, forKey: nil)
+        view.addSubview(imageView)
         
     }
     func showTornado(){
         removeSubviews()
         
     }
+    
     func showSun(){
-        
         removeSubviews()
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "ANIMATIONsun"))
-        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 160)
-        imageView.contentMode = .scaleAspectFit
         
+        let imageView = setUpCorrectImage(image: #imageLiteral(resourceName: "ANIMATIONsun"))
         let animation = setupAnimation()
         imageView.layer.add(animation, forKey: nil)
         view.addSubview(imageView)
-        
     }
+    
     func showCloudSun(){
-        
         removeSubviews()
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "ANIMATIONpartlycloudy"))
-        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 160)
-        imageView.contentMode = .scaleAspectFit
         
+        let imageView = setUpCorrectImage(image: #imageLiteral(resourceName: "ANIMATIONpartlycloudy"))
         let animation = setupAnimation()
         imageView.layer.add(animation, forKey: nil)
         view.addSubview(imageView)
-        
-        
-        
     }
+    
     func showCloud(){
         
         removeSubviews()
         
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "ANIMATIONcloud"))
-        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 160)
-        imageView.contentMode = .scaleAspectFit
-        
+        let imageView = setUpCorrectImage(image: #imageLiteral(resourceName: "ANIMATIONcloud"))
         let animation = setupAnimation()
         imageView.layer.add(animation, forKey: nil)
         view.addSubview(imageView)
-        
     }
     
     func showWind(){
         removeSubviews()
-        
+        let imageView = setUpCorrectImage(image: #imageLiteral(resourceName: "ANIMATIONwindy"))
+        let animation = setupAnimation()
+        imageView.layer.add(animation, forKey: nil)
+        view.addSubview(imageView)
     }
     
     func setupAnimation() -> CAKeyframeAnimation{
@@ -193,17 +196,20 @@ class AnimatedWeatherViewController: UIViewController {
         }
     }
     
+    func setUpCorrectImage(image: UIImage) -> UIImageView {
+        let imageView = UIImageView(image: image)
+        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 160)
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }
+    
     func customPath() -> UIBezierPath {
         let path = UIBezierPath()
-        let endpoint = CGPoint(x: view.frame.height / 2, y: view.frame.width / 2)
-        let controlPoint1 = CGPoint(x: view.frame.origin.x/3, y: view.frame.origin.y/3)
+        let endpoint = CGPoint(x: view.bounds.width / 2, y: view.bounds.height / 2)
+        let controlPoint1 = CGPoint(x: view.frame.origin.x/2, y: view.frame.origin.y/2)
         path.move(to: CGPoint(x: 0, y: view.frame.origin.y + view.frame.height))
         path.addCurve(to: endpoint, controlPoint1: controlPoint1, controlPoint2: endpoint)
         return path
     }
-    
-    
+
 }
-
-
-

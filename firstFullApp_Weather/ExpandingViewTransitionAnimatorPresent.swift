@@ -35,8 +35,8 @@ class ExpandingViewTransitionAnimatorPresent: NSObject, UIViewControllerAnimated
         
         let destinationVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
         destinationVC.modalPresentationStyle = .custom
-        destinationVC.view.backgroundColor = UIColor(colorLiteralRed: 0.968, green: 0.9019, blue: 1, alpha: 1)//247,230 , 255
-        destinationVC.view.alpha = 0
+        destinationVC.view.backgroundColor = UIColor(colorLiteralRed: 0.8509, green: 0.9216, blue: 0.9529, alpha: 1)//247,230 , 255
+        destinationVC.view.alpha = 0 //#d9ebf3
         
         let containerView = transitionContext.containerView
         containerView.addSubview(sourceVC.view)

@@ -48,7 +48,7 @@ class WeatherDataModel {
         case 951...962 :
             return "Wind"
         default:
-            return "idk"
+            return "Cloud"
         }
         
     }
